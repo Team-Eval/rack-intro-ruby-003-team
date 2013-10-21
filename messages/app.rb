@@ -51,6 +51,15 @@ class MessageApp < Sinatra::Base
     redirect to '/'
   end
 
+  post '/submit' do
+    Message.create(
+      :to => request[:to],
+      :from => request[:from],
+      :content => request[:content]
+    )
+    redirect to '/'
+  end
+
   post '/' do
     Message.create(
       :to => request[:to],

@@ -27,9 +27,14 @@
       <% end %>
     </div>
     <div id="form-float">
-      <div class="message">
-        <a href="#" class="submit">SUBMIT</a>
-        <p>Hi there</p>
+      <div class="formbox">
+        <form action="/submit" method="post">
+          To: <input name="to" type="text"><br>
+          From: <input name="from" type="text"><br>
+          Message: <br>
+          <textarea name="content" rows="4"></textarea>
+          <input type="submit" value="SUBMIT">
+        </form>
       </div>
     </div>
   </body>
