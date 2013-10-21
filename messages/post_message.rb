@@ -1,6 +1,7 @@
 # post_message.rb
 
 require "net/http"
+require 'pry'
 
 puts ""
 print "Who do you want to message? "
@@ -19,7 +20,9 @@ uri = URI("http://localhost:9292")
 
 # TODO: Post the message to the server
 
-if response.body == "success"
+response = Net::HTTP.post_form(uri, :to => "#{to}", :from => "#{from}", :content => "#{content}")
+
+if response.code == "200"
   puts "done!"
 else
   puts "Oops, something went wrong :("

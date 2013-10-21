@@ -2,8 +2,9 @@ class Message
   include DataMapper::Resource
 
   property :id, Serial            # Auto-increment integer id
-  property :from, String          # A short string of text
-  property :content, Text         # A longer text block
-  property :created_at, DateTime  # Auto assigns data/time
+  property :to, String            # The sender of the message
+  property :from, String          # Receiver of the message
+  property :content, Text         # Message content
+  property :created_at, DateTime  # Auto assigns date/time
 
 end

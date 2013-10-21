@@ -45,6 +45,12 @@ class MessageApp < Sinatra::Base
     "Database migrated! All tables reset."
   end
 
+  post '/' do
+    puts request[:to]
+    puts request[:from]
+    puts request[:content]
+  end
+
 end
 
 DataMapper.finalize
