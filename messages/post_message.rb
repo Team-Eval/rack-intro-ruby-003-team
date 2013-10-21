@@ -18,6 +18,8 @@ print "Sending message..."
 uri = URI("http://localhost:9292")
 
 # TODO: Post the message to the server
+response = Net::HTTP.post_form(uri, {:to => to, :from => from, :content => content})
+
 
 if response.body == "success"
   puts "done!"

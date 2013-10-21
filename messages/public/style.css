@@ -23,12 +23,32 @@ body {
   z-index: 10;
 }
 
-#message-stream {
+/*#message-stream {
   position: relative;
   left: 50%;
   margin-left: -175px;
   margin-top: -5px;
   width: 350px;
+  background: #ebeef5;
+  border-radius: 3px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}*/
+
+#message-float {
+  float: left;
+  margin-left: 2%;
+  margin-top: -5px;
+  width: 50%;
+  background: #ebeef5;
+  border-radius: 3px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+#form-float {
+  float: right;
+  margin-left: 6%;
+  margin-top: -5px;
+  width: 40%;
   background: #ebeef5;
   border-radius: 3px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
