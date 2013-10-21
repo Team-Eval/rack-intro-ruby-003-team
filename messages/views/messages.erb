@@ -10,13 +10,7 @@
 
     <!-- <div id="message-stream"> -->
     <div id="message-float">
-      <%
-        # for each message in @messages
-        # render the template below
-        # filling the content from
-        # the message
-        @messages.reverse.each do |msg|
-      %>
+      <%@messages.reverse.each do |msg|%>
 
       <div class="message">
         <a href="/delete/<%=msg.id%>" class="close"></a>
@@ -27,10 +21,16 @@
           <%= msg[:content] %>
         </div>
         <div class="time">
-          <%= msg[:created_at] %>
+          <%= msg[:created_at].strftime("%b %e, %l:%M %p") %>
         </div>
       </div>
       <% end %>
+    </div>
+    <div id="form-float">
+      <div class="message">
+        <a href="#" class="submit">SUBMIT</a>
+        <p>Hi there</p>
+      </div>
     </div>
   </body>
 </html>
