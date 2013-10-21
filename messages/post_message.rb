@@ -22,7 +22,7 @@ uri = URI("http://localhost:9292")
 
 response = Net::HTTP.post_form(uri, :to => "#{to}", :from => "#{from}", :content => "#{content}")
 
-if response.code == "200"
+if response.body == "success"
   puts "done!"
 else
   puts "Oops, something went wrong :("

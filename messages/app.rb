@@ -25,8 +25,10 @@ require 'sqlite3'
 
 require_relative 'models/message'
 
+ProjectRoot = File.expand_path(File.dirname(__FILE__))
+
 # this sets up an in-memory database
-DataMapper.setup(:default, 'sqlite::memory:')
+DataMapper.setup(:default, "sqlite:///#{ProjectRoot}/messages.db")
 
 class MessageApp < Sinatra::Base
   configure :development do
@@ -35,7 +37,7 @@ class MessageApp < Sinatra::Base
 
   get '/' do
     @messages = Message.all
-    @body_class = "messages"
+    @body_class = "message"
 
     erb :messages
   end
@@ -46,9 +48,16 @@ class MessageApp < Sinatra::Base
   end
 
   post '/' do
-    puts request[:to]
-    puts request[:from]
-    puts request[:content]
+    Message.create(:to => request[:to],
+                   :from => request[:from],
+                   :content => request[:content],
+                   :created_at => Time.now)
+    "success"
+  end
+
+  get '/delete/:id' do
+    Message.get(params[:id].to_i).destroy if Message.get(params[:id].to_i)
+    redirect to "/"
   end
 
 end

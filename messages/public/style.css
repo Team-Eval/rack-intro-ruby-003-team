@@ -1,4 +1,3 @@
-
 body {
   margin: 0;
   padding: 0;
@@ -61,6 +60,11 @@ body {
 }
 
 .message .from {
+  color: #566897;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.message .to {
   color: #566897;
   font-weight: bold;
   margin-bottom: 5px;

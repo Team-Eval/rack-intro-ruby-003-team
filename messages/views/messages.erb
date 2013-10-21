@@ -4,27 +4,31 @@
     <title></title>
     <link href="style.css" rel="stylesheet" />
   </head>
-  <body>
+  <body class="<%= @body_class %>">
 
     <div class="header">My Messages</div>
 
     <div id="message-stream">
       <%
-        # for each message in @messages
-        # render the template below
-        # filling the content from
-        # the message
+        @messages.reverse.each do |m|
       %>
 
       <div class="message">
-        <a href="" class="close"></a>
+        <a href="/delete/<%= m.id %>" class="close"></a>
         <div class="from">
+          From: <%= m.from %>
+        </div>
+        <div class="to">
+          To: <%= m.to %>
         </div>
         <div class="content">
         </div>
+          <%= m.content %>
         <div class="time">
+          <%= m.created_at.strftime("%b %e, %l:%M %p") %>
         </div>
       </div>
+      <% end %>
 
     </div>
   </body>
